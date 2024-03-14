@@ -23,8 +23,10 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
+        
       - name: Test Dice
         run: npm test
+        
       - name: Build Electron App
         run: npm run dist
 
