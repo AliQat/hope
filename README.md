@@ -21,4 +21,5 @@ This solution has only been tested on Windows machines. Windows 10 and Windows 1
 ### USEFUL COMMANDS
 - To run the program, use "npm start" from the terminal.
 - To run program tests, utilize "npm test," which will execute all files ending in ".mjs". For additional details, refer to the package.json file.
-- To modify the program GUI, you can either delve into the code or simply run the program with "npm start" and...
+- To modify the program GUI, you can either delve into the code or simply run the program with "npm start" and use the shortcut "Ctrl+LShift+I" to open the dev tools
+  and you can select variables and GUI icons and adjust them from there
