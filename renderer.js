@@ -24,7 +24,7 @@ function retractSword() {
   setTimeout(() => {
     swordImg.classList.remove('retracted');
     isSwordDropped = false;
-  }, 1000); // Adjust the delay as needed
+  }, 1000);
 }
 
 const pullTab = document.getElementById('pulltab-container');
@@ -51,7 +51,7 @@ function closeTab() {
   isTabOpen = false;
 }
 
-// Assuming you've already set up the rest from your previous code
+
 const sceneMenuContainer = document.getElementById('scene-menu-container');
 
 function handleTabClick() {
@@ -64,13 +64,13 @@ function handleTabClick() {
 
 function openTabAndMenu() {
   pullTab.classList.add('open');
-  sceneMenuContainer.classList.add('open'); // Open the scene menu along with the pull tab
+  sceneMenuContainer.classList.add('open'); 
   isTabOpen = true;
 }
 
 function closeTabAndMenu() {
   pullTab.classList.remove('open');
-  sceneMenuContainer.classList.remove('open'); // Close the scene menu with the pull tab
+  sceneMenuContainer.classList.remove('open');
   isTabOpen = false;
 }
 
@@ -124,8 +124,6 @@ form.addEventListener("submit", function(event) {
   var title = document.getElementById("title").value;
   var narration = document.getElementById("narration").value;
   var image = document.getElementById("image").files[0];
-
-  // Do whatever you want with the form data (e.g., display it, process it, etc.)
 
   // Close the modal
   modal.style.display = "none";
