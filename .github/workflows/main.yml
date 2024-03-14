@@ -1,7 +1,10 @@
-name: Electron Builder
+name: Electron Build
 
 on:
   push:
+    branches:
+      - main
+  pull_request:
     branches:
       - main
 
@@ -10,32 +13,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout Repository
         uses: actions/checkout@v2
 
       - name: Setup Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: '14'
 
-      - name: Install dependencies
+      - name: Install Dependencies
         run: npm install
 
-      - name: Electron Builder
-        uses: paneron/action-electron-builder@v1.8.1
+      - name: Build Electron App
+        run: npm run dist
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
         with:
-          skip_package_manager_install: false
-          package_manager: npm
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          mac_certs: BASE64_ENCODED_CERTIFICATE_FOR_MACOS
-          mac_certs_password: CERTIFICATE_PASSWORD
-          release: true
-          windows_certs: BASE64_ENCODED_CERTIFICATE_FOR_WINDOWS
-          windows_certs_password: CERTIFICATE_PASSWORD
-          package_root: .
-          build_script_name: build
-          skip_build: false
-          use_vue_cli: false
-          args: '--some-arg=value'
-          max_attempts: 3
-          app_root: 'path/to/app'
+          name: electron-dist
+          path: dist
