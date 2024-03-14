@@ -132,15 +132,16 @@ form.addEventListener("submit", function(event) {
 
 let selectedDice = {};
 
-function addDie(die) {
-    if (!selectedDice[die]) {
-        selectedDice[die] = 1;
-    } else {
-        selectedDice[die]++;
-    }
-    updateSelectedDiceDisplay();
-    document.getElementById("rollButton").style.display = "block";
+function addDie(die, selectedDice, document) {
+  if (!selectedDice[die]) {
+      selectedDice[die] = 1;
+  } else {
+      selectedDice[die]++;
+  }
+  updateSelectedDiceDisplay(selectedDice, document);
+  document.getElementById("rollButton").style.display = "block";
 }
+
 
 function updateSelectedDiceDisplay() {
     let selectedDiceDisplay = [];
@@ -151,46 +152,47 @@ function updateSelectedDiceDisplay() {
 }
 
 function rollDice() {
-    let totalResult = 0;
-    for (const die in selectedDice) {
-        switch (die) {
-            case 'D4':
-                totalResult += rollNDice(selectedDice[die], 4);
-                break;
-            case 'D6':
-                totalResult += rollNDice(selectedDice[die], 6);
-                break;
-            case 'D8':
-                totalResult += rollNDice(selectedDice[die], 8);
-                break;
-            case 'D10':
-                totalResult += rollNDice(selectedDice[die], 10);
-                break;
-            case 'D12':
-                totalResult += rollNDice(selectedDice[die], 12);
-                break;
-            case 'D20':
-                totalResult += rollNDice(selectedDice[die], 20);
-                break;
-            case 'D100':
-                totalResult += rollNDice(selectedDice[die], 100);
-                break;
-            default:
-                break;
-        }
-    }
-    document.getElementById("result").innerText = `Total Result: ${totalResult}`;
-    selectedDice = {};
-    document.getElementById("rollButton").style.display = "none";
+  let totalResult = 0;
+  for (const die in selectedDice) {
+      switch (die) {
+          case 'D4':
+              totalResult += rollNDice(selectedDice[die], 4);
+              break;
+          case 'D6':
+              totalResult += rollNDice(selectedDice[die], 6);
+              break;
+          case 'D8':
+              totalResult += rollNDice(selectedDice[die], 8);
+              break;
+          case 'D10':
+              totalResult += rollNDice(selectedDice[die], 10);
+              break;
+          case 'D12':
+              totalResult += rollNDice(selectedDice[die], 12);
+              break;
+          case 'D20':
+              totalResult += rollNDice(selectedDice[die], 20);
+              break;
+          case 'D100':
+              totalResult += rollNDice(selectedDice[die], 100);
+              break;
+          default:
+              break;
+      }
+  }
+  document.getElementById("result").innerText = `Total Result: ${totalResult}`;
+  selectedDice = {};
+  document.getElementById("rollButton").style.display = "none";
 }
 
 function rollNDice(n, sides) {
-    let result = 0;
-    for (let i = 0; i < n; i++) {
-        result += Math.floor(Math.random() * sides) + 1;
-    }
-    return result;
+  let result = 0;
+  for (let i = 0; i < n; i++) {
+      result += Math.floor(Math.random() * sides) + 1;
+  }
+  return result;
 }
+
 
 
 const plusButton = document.getElementById('plus-button');
