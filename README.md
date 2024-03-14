@@ -1,4 +1,4 @@
-##DISCLAIMER: This only works and only has been tested on Windows machines. Windows 10 and Windows 11 are confirmed to be working following the instructions below
+### DISCLAIMER: This only works and only has been tested on Windows machines. Windows 10 and Windows 11 are confirmed to be working following the instructions below
 ### INSTRUCTIONS TO RUN
 1. Install all the files and folders by clicking the green code button and selecting "Download as ZIP"
 2. Extract the content of the zip file and place the folder "hope-main" where-ever you want
